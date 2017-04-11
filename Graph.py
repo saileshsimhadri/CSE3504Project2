@@ -1,11 +1,11 @@
 class Node:
 
     def __init__(self, index, value, *edges):
-       self.index = index
-       self.value = value
-       self.edges = {}
-       for edge in edges:
-           self.add_edge(edge)
+        self.index = index
+        self.value = value
+        self.edges = {}
+        for edge in edges:
+            self.add_edge(edge)
 
     def __getitem__(self, key):
         return self.edges[key]
@@ -15,7 +15,7 @@ class Node:
             yield edge
 
     def add_edge(self, edge):
-        self.edges[edge.other(self).value] = edge
+        self.edges[edge.other(self).index] = edge
 
 class Edge:
 
@@ -25,9 +25,9 @@ class Edge:
 
     def other(self, node):
         if node == node1:
-            return node2
+            return self.node2
         else:
-            return node1
+            return self.node1
 
 
 
