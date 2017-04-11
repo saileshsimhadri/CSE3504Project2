@@ -20,11 +20,13 @@ class Node:
 class Edge:
 
     def __init__(self, node1, node2):
+        self.node1 = node1
+        self.node2 = node2
         node1.add_edge(self)
         node2.add_edge(self)
 
     def other(self, node):
-        if node == node1:
+        if node == self.node1:
             return self.node2
         else:
             return self.node1
