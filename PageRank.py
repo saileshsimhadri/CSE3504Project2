@@ -7,3 +7,5 @@ class PageRank:
         p = Parser()
         self.graph, self.links = p.parse(file)
         print(len(self.graph.nodes), len(self.graph.edges))
+        for node in self.graph['2']:
+            print(node.index)

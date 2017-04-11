@@ -12,7 +12,7 @@ class Node:
 
     def __iter__(self):
         for edge in self.edges.values():
-            yield edge
+            yield edge.other(self)
 
     def add_edge(self, edge):
         self.edges[edge.other(self).index] = edge
@@ -40,7 +40,8 @@ class Graph:
         self.edges = edges
 
     def __getitem__(self, key):
-       return self.nodes[key]
+        print(self.nodes)
+        return self.nodes[key]
 
     def __iter__(self):
        for node in self.nodes.values():
