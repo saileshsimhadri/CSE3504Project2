@@ -17,6 +17,9 @@ class Node:
     def add_edge(self, edge):
         self.edges[edge.other(self).index] = edge
 
+    def degree(self):
+        return len(self.edges)
+
 class Edge:
 
     def __init__(self, node1, node2):
