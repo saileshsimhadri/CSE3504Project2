@@ -43,7 +43,6 @@ class Graph:
         self.edges = edges
 
     def __getitem__(self, key):
-        print(self.nodes)
         return self.nodes[key]
 
     def __iter__(self):
