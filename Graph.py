@@ -12,10 +12,10 @@ class Node:
 
     def __iter__(self):
         for edge in self.edges.values():
-            yield edge.other(self)
+            yield edge.dest()
 
     def add_edge(self, edge):
-        self.edges[edge.other(self).index] = edge
+        self.edges[edge.dest().index] = edge
 
     def degree(self):
         return len(self.edges)
@@ -23,18 +23,11 @@ class Node:
 class Edge:
 
     def __init__(self, node1, node2):
-        self.node1 = node1
-        self.node2 = node2
-        node1.add_edge(self)
-        node2.add_edge(self)
+        self.origin = node1
+        self.destination = node2
 
-    def other(self, node):
-        if node == self.node1:
-            return self.node2
-        else:
-            return self.node1
-
-
+    def dest(self):
+        return self.destination
 
 class Graph:
 
