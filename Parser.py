@@ -10,18 +10,18 @@ class Parser:
             # skip first lin
             next(f)
             for line in f:
-                if "http" in line:
+                if "http" in line: # if it contains "http" then it is a node
                     items = line.split(" ")
-                    index = items[0]
-                    address = items[1]
-                    nodes[index] = Node(index, address)
+                    index = items[0] # first element is index
+                    address = items[1] # second element is link
+                    nodes[index] = Node(index, address) # create node
                     links[index] = address
                 else:
-                    n1, n2 = line.strip("\n").split(" ")
+                    n1, n2 = line.strip("\n").split(" ") # otherwise it is an edge
                     n1 = nodes[n1]
                     n2 = nodes[n2]
-                    e = Edge(n1, n2)
-                    n1.add_edge(e)
+                    e = Edge(n1, n2) # create edge with two nodes
+                    n1.add_edge(e) 
                     edges.append(e)
         g = Graph(nodes, edges)
         print('degree', g['1'].degree())
