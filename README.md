@@ -18,4 +18,3 @@ run `pip install numpy`. Alternatively, you can run
 
 ### Running the Code
 - `python3 practice1.py` will run the first part of the project
-- `python3 practice2.py` will run the second part of the project
