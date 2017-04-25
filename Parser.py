@@ -24,6 +24,4 @@ class Parser:
                     n1.add_edge(e) 
                     edges.append(e)
         g = Graph(nodes, edges)
-        print('degree', g['1'].degree())
         return g, links
-

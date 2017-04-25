@@ -17,4 +17,4 @@ run `pip install numpy`. Alternatively, you can run
 `pip install -r requirements.txt`, if you are in our source code directory.
 
 ### Running the Code
-- `python3 practice1.py` will run the first part of the project
+- `python3 practice.py` will run the project
