@@ -32,7 +32,6 @@ class PageRank:
 
     def epsilon(self, m1, m2): # calculates distance between two successive iterations to know when to stop
         diff = m1 - m2
-        print(m1, m2, diff)
         return math.sqrt(np.dot(diff, diff.T)[0][0])
 
 
@@ -40,7 +39,7 @@ class PageRank:
         self.dampen(damp) # first dampen the matrix
         old_res = np.dot(self.tran_matr, self.init_vec) # perform one iteration
         new_res= np.dot(self.tran_matr, old_res) # perform another iteration
-        while(self.epsilon(old_res, new_res) > .001): # while we haven't converged, continue to peform iterations
+        while(self.epsilon(old_res, new_res) > .00000000001): # while we haven't converged, continue to peform iterations
             old_res = new_res
             new_res = np.dot(self.tran_matr, old_res)
         result = [(new_res[x][0], self.graph[str(x + 1)]) for x in range(len(self.graph.nodes))] # get node and probability pairs
